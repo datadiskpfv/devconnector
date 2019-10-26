@@ -1,0 +1,37 @@
+Note: running the below will populate the package.json file
+
+Regular application dependencies
+------------------------------------------------------------------------------------------------------
+npm i express express-validator bcryptjs config gravatar jsonwebtoken mongoose request
+
+express             - Main web framework for the back-end
+express-validator   - Used for data validation
+bcryptjs            - Used for password encryption
+config              - Used to configure global variables that can be used throughout the application
+gravatar            - Used for profile avatars (profile images)
+jsonwebtoken        - Will be used for JWT tokens validation
+mongoose            - The Mongoose database API
+request             - Will allow to make HTTP requests to other API's (used for github repos's)
+
+DEV application dependencies
+------------------------------------------------------------------------------------------------------
+npm i -D nodemon concurrently
+
+nodemon             - Used to refresh the server when changes have been made to the application
+concurrently        - Allows both front-end and back-end applications to be run together
+
+Setup the redux client
+-------------------------------------------------------------------------------------------------------
+npx create-react-app client
+cd client
+npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension moment react-moment uuid
+
+axios                       -  make http requests
+react-router-dom            -  redux router
+redux                       -  redux
+react-redux                 -  react redux, hooks into redux
+redux-thunk                 -  react middleware allows to make async requests in actions
+redux-devtools-extension    -  helps with making things communicate easier
+moment                      -  date and time library
+react-moment                -  help in using above with react
+uuid                        -  allows application to create uuid's
