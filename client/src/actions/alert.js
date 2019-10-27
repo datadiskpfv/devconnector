@@ -6,9 +6,12 @@ export const setAlert = (msg, alertType) => dispatch => {
     console.log("actions->alert setAlert called");
 
    const id = uuid.v4();
-
    dispatch({
        type: SET_ALERT,
        payload: { msg, alertType, id}
    });
+
+   setTimeout(() =>
+       dispatch({type: REMOVE_ALERT, payload: id}), 5000
+   );
 };
