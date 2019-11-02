@@ -2,7 +2,7 @@ Note: running the below will populate the package.json file
 
 Regular application dependencies
 ------------------------------------------------------------------------------------------------------
-npm i express express-validator bcryptjs config gravatar jsonwebtoken mongoose request
+npm i express express-validator bcryptjs config gravatar jsonwebtoken mongoose request prop-types
 
 express             - Main web framework for the back-end
 express-validator   - Used for data validation
