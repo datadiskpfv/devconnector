@@ -3,3 +3,4 @@ config/production.json
 /package-lock.json
 config/default.json
 client/node_modules
+/.idea/inspectionProfiles/Project_Default.xml
