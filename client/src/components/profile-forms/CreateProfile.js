@@ -1,9 +1,10 @@
 import React, {Fragment, useState} from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { createProfile} from "../../actions/profile";
 
-
-const CreateProfile = props => {
+const CreateProfile = ({ createProfile, history }) => {
 
     const [formData, setFormData] = useState({
         company: "",
@@ -39,6 +40,11 @@ const CreateProfile = props => {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+    const onSubmit = e => {
+        e.preventDefault();
+        createProfile(formData, history);
+    };
+
     return (
         <Fragment>
             <h1 className="large text-primary">
@@ -49,7 +55,7 @@ const CreateProfile = props => {
                 profile stand out
             </p>
             <small>* = required field</small>
-            <form className="form">
+            <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <select name="status" value={status} onChange={e => onChange(e)}>
                         <option value="0">* Select Professional Status</option>
@@ -108,8 +114,6 @@ const CreateProfile = props => {
                     <small className="form-text">Tell us a little about yourself</small>
                 </div>
 
-
-
                 <div className="my-2">
                     <button onClick={() => toggleSocialInputs(!displaySocialInputs)} type="button" className="btn btn-light">
                         Add Social Network Links
@@ -144,7 +148,7 @@ const CreateProfile = props => {
                             <input type="text" placeholder="Instagram URL" name="instagram" value={instagram} onChange={e => onChange(e)}/>
                         </div>
                     </Fragment>
-                )};
+                )}
 
                 <input type="submit" className="btn btn-primary my-1"/>
                 <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
@@ -154,7 +158,8 @@ const CreateProfile = props => {
 };
 
 CreateProfile.propTypes = {
-
+    createProfile: PropTypes.func.isRequired,
 };
 
-export default CreateProfile;
+// the withRouter is required to pass in the history prop
+export default connect(null, { createProfile })(withRouter(CreateProfile));
