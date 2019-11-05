@@ -12,7 +12,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: {profile, loadi
 
     useEffect(() => {
         getCurrentProfile()
-    }, []);
+    }, [getCurrentProfile]);
 
     return (
         loading && profile === null ? <Spinner /> : <Fragment>
