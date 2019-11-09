@@ -6,8 +6,6 @@ export default function(state = initialState, action) {
 
     const { type, payload } = action;
 
-    console.log('reducers->alert called' + initialState);
-
     switch(type) {
         case SET_ALERT:
             return [...state, payload];
